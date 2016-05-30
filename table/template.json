@@ -1,0 +1,76 @@
+{	
+	"main": {
+		"tag": "div",
+		"class": "table",
+		"id": "table",
+		"inner": [
+			{
+				"tag": "table",
+				"border": "none",
+				"inner": [
+					{
+						"tag": "tbody",
+						"class": "tbody"
+					}
+				]
+			}
+		]
+	},
+	
+	"header": {
+		"tag": "tr",
+		"class": "header_row"
+	},
+	
+	"header_ceil": {
+		"tag": "th",
+		"inner": [
+			{
+				"tag": "div",
+				"style": "min-width: 20%;",
+				"inner": "%header_ceil_text%"
+			}
+		]
+	},
+	
+	"row": {
+		"tag": "tr",
+		"class": "%class%"
+	},
+	
+	"row_ceil": {
+		"tag": "td",
+		"inner": [
+			{
+				"tag": "div",
+				"column": "%column_number%",
+				"row": "%row_number%",
+				"id": "%id%",
+				"class": "row_ceil",
+				"contenteditable": "%contenteditable%",
+				"style": "min-width: 20%;",
+				"inner": "%row_ceil_text%"
+			}
+		]
+	},
+	
+	"control": {
+		"tag": "div",
+		"class": "control", 
+		"id": "control",
+		"inner": [
+			{
+				"tag": "input",
+				"type": "button",
+				"value": "Add row",
+				"onclick": "%onclick_add_row%"
+			},
+			{
+				"tag": "input",
+				"type": "button",
+				"value": "Add column",
+				"onclick": "%onclick_add_col%"
+			}
+		]
+	}
+}

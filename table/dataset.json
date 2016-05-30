@@ -1,0 +1,93 @@
+{
+  "key": "myTable",
+  "maxCeilNumbers": 5,
+  "header_ceils": [
+    {
+      "header_ceil_text": "col_1"
+    },
+    {
+      "header_ceil_text": "col_2"
+    },
+	{
+      "header_ceil_text": "col_3"
+    },
+	{
+      "header_ceil_text": "col_4"
+    },
+	{
+      "header_ceil_text": "col_5"
+    }
+  ],
+  "row_ceils": [
+    {
+      "column_number": "1",
+      "row_number": "1",
+      "id": "ceil_1_1",
+      "contenteditable": "true",
+      "header_ceil_text": "243"
+    },
+    {
+      "column_number": "2",
+      "row_number": "1",
+      "id": "ceil_1_2",
+      "contenteditable": "true",
+      "header_ceil_text": "263"
+    },
+    {
+      "column_number": "3",
+      "row_number": "1",
+      "id": "ceil_1_3",
+      "contenteditable": "true",
+      "header_ceil_text": "273"
+    },
+    {
+      "column_number": "4",
+      "row_number": "1",
+      "id": "ceil_1_4",
+      "contenteditable": "true",
+      "header_ceil_text": "283"
+    },
+    {
+      "column_number": "5",
+      "row_number": "1",
+      "id": "ceil_1_5",
+      "contenteditable": "true",
+      "header_ceil_text": "293"
+    },
+	{
+      "column_number": "1",
+      "row_number": "2",
+      "id": "ceil_2_1",
+      "contenteditable": "true",
+      "header_ceil_text": "243"
+    },
+    {
+      "column_number": "2",
+      "row_number": "1",
+      "id": "ceil_2_2",
+      "contenteditable": "true",
+      "header_ceil_text": "263"
+    },
+    {
+      "column_number": "3",
+      "row_number": "1",
+      "id": "ceil_2_3",
+      "contenteditable": "true",
+      "header_ceil_text": "273"
+    },
+    {
+      "column_number": "4",
+      "row_number": "1",
+      "id": "ceil_2_4",
+      "contenteditable": "true",
+      "header_ceil_text": "283"
+    },
+    {
+      "column_number": "5",
+      "row_number": "2",
+      "id": "ceil_2_5",
+      "contenteditable": "true",
+      "header_ceil_text": "293"
+    }
+  ]
+}
