@@ -1,6 +1,15 @@
 div#table table {
-	border: 2px solid black
+	border-collapse: collapse; 
+	border-spacing: 0;
 }
-td {
+div#table table tr td {
 	border: 1px solid black !important;
+	margin: 0 !important;
+	padding: 0;
+}
+html {
+	background-color: gray;
+}
+.table {
+	background-color: white;
 }

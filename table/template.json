@@ -6,7 +6,7 @@
 		"inner": [
 			{
 				"tag": "table",
-				"border": "none",
+				"style": "border-collapse: collapse; border-spacing: 0;",
 				"inner": [
 					{
 						"tag": "tbody",
@@ -49,7 +49,8 @@
 				"class": "row_ceil",
 				"contenteditable": "%contenteditable%",
 				"style": "min-width: 20%;",
-				"inner": "%row_ceil_text%"
+				"inner": "%row_ceil_text%",
+				"onblur": "%manage_content%"
 			}
 		]
 	},
