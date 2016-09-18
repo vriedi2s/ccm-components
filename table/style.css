@@ -13,3 +13,7 @@ html {
 .table {
 	background-color: white;
 }
+
+.puzzle, .table {
+	display: inline;
+}

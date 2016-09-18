@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body onload="init()">
+<table class="puzzle" border="1">
+	<tr><th id="status" style="background-color: red;" colspan="4">Status</th></tr>
+	<tr><td id="a0"></td><td id="a1"></td><td id="a2"></td><td id="a3"></td></tr>
+	<tr><td id="b0"></td><td id="b1"></td><td id="b2"></td><td id="b3"></td></tr>
+	<tr><td id="c0"></td><td id="c1"></td><td id="c2"></td><td id="c3"></td></tr>
+	<tr><td id="d0"></td><td id="d1"></td><td id="d2"></td><td id="d3"></td></tr>
+</table>
+<table>
+	<tr><td></td><td><input id="btn_up" type="button" value="up"/></td><td></td></tr>
+	<tr><td><input id="btn_left" type="button" value="left"/></td><td></td><td><input id="btn_right" type="button" value="right"/></td></tr>
+	<tr><td></td><td><input id="btn_down" type="button" value="down"/></td><td></td></tr>
+	<tr><td><input id="btn_mix" type="button" value="mix"/></td><td></td><td><input id="btn_check" type="button" value="check"/></td></tr>
+</table>
+</body>
+<script type="text/javascript">
+	var a = new Array('<img src="img/a0.png" alt="1">', '<img src="img/a1.png" alt="2">', '<img src="img/a2.png" alt="3">', '<img src="img/a3.png" alt="4">');
+	var b = new Array('<img src="img/b0.png" alt="5">', '<img src="img/b1.png" alt="6">', '<img src="img/b2.png" alt="7">', '<img src="img/b3.png" alt="8">');
+	var c = new Array('<img src="img/c0.png" alt="9">', '<img src="img/c1.png" alt="10">', '<img src="img/c2.png" alt="11">', '<img src="img/c3.png" alt="12">');
+	var d = new Array('<img src="img/d0.png" alt="13">', '<img src="img/d1.png" alt="14">', '<img src="img/d2.png" alt="14">', null);
+	
+	var position = {
+		"array": d,
+		"pos": 3
+	};
+	
+	function init() {
+		document.getElementById('a0').innerHTML = a[0];
+		document.getElementById('a1').innerHTML = a[1];
+		document.getElementById('a2').innerHTML = a[2];
+		document.getElementById('a3').innerHTML = a[3];
+		document.getElementById('b0').innerHTML = b[0];
+		document.getElementById('b1').innerHTML = b[1];
+		document.getElementById('b2').innerHTML = b[2];
+		document.getElementById('b3').innerHTML = b[3];
+		document.getElementById('c0').innerHTML = c[0];
+		document.getElementById('c1').innerHTML = c[1];
+		document.getElementById('c2').innerHTML = c[2];
+		document.getElementById('c3').innerHTML = c[3];
+		document.getElementById('d0').innerHTML = d[0];
+		document.getElementById('d1').innerHTML = d[1];
+		document.getElementById('d2').innerHTML = d[2];
+		document.getElementById('d3').innerHTML = d[3];
+		
+		init_btns();
+		check();
+	}
+	
+	function switch_(arr, direction) {	
+		if (arr === position.array && direction != null) {
+			if (position.pos === 0 && direction != "left") {
+				position.array[position.pos] = position.array[(position.pos + 1)];
+				position.array[(position.pos) + 1] = null;
+				position.pos = position.pos + 1;
+			} else if (position.pos === 3 && direction != "right") {
+				position.array[position.pos] = position.array[(position.pos - 1)];
+				position.array[(position.pos - 1)] = null;
+				position.pos = position.pos - 1;
+			} else {
+				if (direction == "left") {
+					position.array[position.pos] = position.array[(position.pos - 1)];
+					position.array[(position.pos - 1)] = null;
+					position.pos = position.pos - 1;
+				} else if (direction == "right") {
+					position.array[position.pos] = position.array[(position.pos + 1)];
+					position.array[(position.pos) + 1] = null;
+					position.pos = position.pos + 1;
+				}
+			}
+		} else if (arr != position.array){
+			position.array[position.pos] = arr[position.pos];
+			arr[position.pos] = null;
+			position.array = arr;
+		}
+		init();
+		
+	}
+	
+	function init_btns() {
+		var btn_up = document.getElementById("btn_up");
+		btn_up.disabled = false;
+		var btn_down = document.getElementById("btn_down");
+		btn_down.disabled = false;
+		var btn_left = document.getElementById("btn_left");
+		btn_left.disabled = false;
+		var btn_right = document.getElementById("btn_right");
+		btn_right.disabled = false;
+		if (position.pos === 0) {
+			btn_right.disabled = true;
+		}
+		if (position.pos === 3) {
+			btn_left.disabled = true;
+		}
+		if (position.array === d) {
+			btn_up.disabled = true;
+		}
+		if (position.array === a) {
+			btn_down.disabled = true;
+		}
+		btn_down.onclick = function() {
+			switch (position.array) {
+				case d:
+					switch_(c, null);
+					break;
+				case c: 
+					switch_(b, null);
+					break;
+				case b:
+					switch_(a, null);
+					break;
+			}
+		}
+		btn_up.onclick = function() {
+			switch (position.array) {
+				case a:
+					switch_(b, null);
+					break;
+				case b: 
+					switch_(c, null);
+					break;
+				case c:
+					switch_(d, null);
+					break;
+			}
+		}
+		btn_left.onclick = function() {
+			switch_(position.array, "right");
+		}
+		
+		btn_right.onclick = function() {
+			switch_(position.array, "left");
+		}
+		var move_btns = new Array(btn_down, btn_left, btn_up, btn_right);
+		btn_mix.onclick = function() {
+			for (i = 0; i < 333; i++) {
+				var x = Math.floor((Math.random() * 4) + 0);
+				if (move_btns[x].disabled == false) {
+						move_btns[x].click();
+				}
+			}
+		}
+		btn_check.onclick = function() {
+			check();
+		}
+	}
+	
+	function check() {
+		if (document.getElementById('a0').innerHTML === a[0] &&
+		document.getElementById('a1').innerHTML === a[1] &&
+		document.getElementById('a2').innerHTML === a[2] &&
+		document.getElementById('a3').innerHTML === a[3] &&
+		document.getElementById('b0').innerHTML === b[0] &&
+		document.getElementById('b1').innerHTML === b[1] &&
+		document.getElementById('b2').innerHTML === b[2] &&
+		document.getElementById('b3').innerHTML === b[3] &&
+		document.getElementById('c0').innerHTML === c[0] &&
+		document.getElementById('c1').innerHTML === c[1] &&
+		document.getElementById('c2').innerHTML === c[2] &&
+		document.getElementById('c3').innerHTML === c[3] &&
+		document.getElementById('d0').innerHTML === d[0] &&
+		document.getElementById('d1').innerHTML === d[1] &&
+		document.getElementById('d2').innerHTML === d[2]) {
+			document.getElementById("status").style.background = "green";
+			document.getElementById("status").innerHTML = "solved";
+		} else {
+			document.getElementById("status").style.background = "red";
+			document.getElementById("status").innerHTML = "not solved";
+		}
+	}
+
+	
+	
+</script>
+</html>

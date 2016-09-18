@@ -1,0 +1,143 @@
+{	
+	"main": {
+		"tag": "div",
+		"id": "game",
+		"inner": [
+			{
+				"tag": "table",
+				"border": "1",
+				"inner": [
+					{
+						"tag": "tbody",
+						"class": "tbody"
+					}
+				]
+			}
+		]
+	},
+	
+	"header": {
+		"tag": "tr",
+		"class": "header_row"
+	},
+	
+	"header_ceil": {
+		"tag": "th",
+		"id": "status",
+		"colspan": "4",
+		"inner": [
+			{
+				"tag": "p",
+				"inner": "%header_ceil_text%"
+			}
+		]
+	},
+	
+	"row": {
+		"tag": "tr",
+		"class": "%class%"
+	},
+	
+	"row_ceil": {
+		"tag": "td",
+		"id": "%id%",
+		"inner": [
+			{
+				"tag": "img",
+				"class": "img_puzzle",
+				"src": "%img_puzzle%"
+			}
+		]
+	},
+	
+	"control": {
+		"tag": "td",
+		"colspan": "4",
+		"align": "center",
+		"inner": [
+			{
+			"tag": "table",
+			"class": "control", 
+			"id": "control",
+			"inner": [
+				{
+					"tag": "tr",
+					"inner": [
+						{"tag": "td"},
+						{"tag": "td",
+							"inner": [
+								{
+								"tag": "input",
+								"id": "btn_up",
+								"type": "button",
+								"value": "Up"
+								}
+							]
+						},
+						{"tag": "td"}
+					]
+				},
+				{
+					"tag": "tr",
+					"inner": [
+						{"tag": "td", 
+							"inner": [
+								{
+								"tag": "input",
+								"id": "btn_left",
+								"type": "button",
+								"value": "Left"
+								}
+							]},
+						{"tag": "td"},
+						{"tag": "td",
+							"inner": [
+								{
+								"tag": "input",
+								"id": "btn_right",
+								"type": "button",
+								"value": "Right"
+								}
+							]
+						}
+					]
+				},
+				{
+					"tag": "tr",
+					"inner": [
+						{"tag": "td"},
+						{"tag": "td",
+							"inner": [
+								{
+								"tag": "input",
+								"id": "btn_down",
+								"type": "button",
+								"value": "Down"
+								}
+							]
+						},
+						{"tag": "td"}
+					]
+				},
+				{
+					"tag": "tr",
+					"inner": [
+						{"tag": "td",
+							"inner": [
+								{
+								"tag": "input",
+								"id": "btn_mix",
+								"type": "button",
+								"value": "Mix"
+								}
+							]
+						},
+						{"tag": "td"},
+						{"tag": "td"}
+					]
+				}
+			]
+		}
+		]
+	}
+}
